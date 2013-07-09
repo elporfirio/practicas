@@ -1,0 +1,77 @@
+<html>
+	<title>Directorio eXPRs by elporfirio v0.1</title>
+	<head>
+	<script type="text/javascript">
+		//Funcion para buscar en la base de datos
+		function obtenerExtension(str){
+			alert(str);
+			
+			var xmlhttp; 
+			if (str=="")
+				{
+				document.getElementById("txtHint").innerHTML="";
+				return;
+				}
+			
+			if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+				}
+			else
+				{// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				
+			xmlhttp.onreadystatechange = function(){
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+					document.getElementById("contacto").innerHTML=xmlhttp.responseText;
+					}
+				}
+			xmlhttp.open("GET","consulta.php?contacto="+str,true);
+			xmlhttp.send();
+			
+		}
+		
+		// Funcion para actualizar la lista mientras se escribe 
+		function sugerencias(str){
+			var xmlhttp;
+			if (str.length==0)
+				{ 
+			  	document.getElementById("similares").innerHTML="";
+			  	return;
+			  	}
+			
+				
+		  	if (window.XMLHttpRequest)
+				{
+			  	xmlhttp=new XMLHttpRequest();
+			  	}
+			else
+			  	{
+			  	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  	}
+		  	xmlhttp.onreadystatechange=function(){
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+				 	document.getElementById("similares").innerHTML=xmlhttp.responseText;
+				 	}
+			  	}
+		  	xmlhttp.open("GET","sugerencia.php?q="+str,true);
+			xmlhttp.send();
+		}
+	</script>
+	</head>
+	<body>	
+		<h2>Directorio Express</h2>
+		<p>Introduce un nombre</p>
+		<form action="">
+			Primer nombre: <input type="text" id="txt1" onKeyUp="sugerencias(this.value)">
+		</form>
+		<p>Contactos similares: <br>
+        <span id="similares"></span></p>
+        
+        <div id="contacto">
+		</div>
+	</body>
+</html>

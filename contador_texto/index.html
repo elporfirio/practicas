@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Contador de texto tipo twitter</title>
+<script src="jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+    var longitud_max = 25;
+    var chars_actuales = $("#comentarios").val().length;
+    
+    $("#contador").html(longitud_max + " caracteres restantes");
+    
+    $("#comentarios").keyup(function(){
+        var chars_nuevos = longitud_max - $("#comentarios").val().length;
+        
+        $("#contador").html(chars_nuevos + " caracteres restantes");
+
+        if(chars_nuevos <= 10 && chars_nuevos > 0){
+            $("#contador").css("color","#F00");
+        }
+        else{
+            $("#contador").css("color","#000");
+        }
+        
+        if(chars_nuevos <= 0){
+            $("#comentarios").keypress(function(){
+                var texto = $("#comentarios").val().substr(0,24);
+                $("#comentarios").val(texto);
+            });
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<textarea id="comentarios" row="40"></textarea>
+<br>
+<div id="contador"></div>
+</body>
+</html>

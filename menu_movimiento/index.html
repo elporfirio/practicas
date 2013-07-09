@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Documento sin título</title>
+<script src="jquery-1.9.0.min.js"></script>
+<script>
+
+$(function() 
+{
+	var $el = $("#menu");
+	var originalTop = $el.offset().top;
+
+	$(window).scroll(
+	
+	function(e){
+		if ($(this).scrollTop() > originalTop)
+		{
+		  $el.css({
+			  'position': 'fixed',
+			  'top': '0px'
+			  });
+		}
+		else
+		{
+			$el.css({
+				'position': 'absolute',
+				'top': originalTop
+			});
+		}
+		
+		}
+	)
+
+
+});
+
+
+</script>
+<style>
+body {
+    margin-left: 0;
+    color: #8DCC00;
+    background-color: #E2FFFC;
+    font-family: "arial";
+    font-size: 1.5em;
+}
+li{
+    float: left;
+    list-style: none;
+    padding-left: 40px;
+}
+#menu {
+    position: absolute;
+    background-color: #2D7700;
+    top: 30%;
+    padding-right: 80px;
+}
+.contenido div {
+    height: 300px;
+}
+</style>
+</head>
+
+<body>
+<div id="contenedor">
+	<div id="menu">
+		<ul>
+			<li>item 1</li>
+			<li>item 2</li>
+			<li>item 3</li>
+			<li>item 4</li>
+		</ul>
+	</div>
+	<div class="contenido">
+		<div style="background-color: #69B898;"></div>
+		<div style="background-color: #97CEB8;"></div>
+		<div style="background-color: #BBDFD0;"></div>
+		<div style="background-color: #E2F1EB;"></div>
+		<div style="background-color: #69B898;"></div>
+		<div style="background-color: #97CEB8;"></div>
+		<div style="background-color: #BBDFD0;"></div>
+		<div style="background-color: #E2F1EB;"></div>
+	</div>
+</div>
+</body>
+</html>

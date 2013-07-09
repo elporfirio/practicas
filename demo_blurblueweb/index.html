@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Demo Blur Blue Web by elporfirio.com</title>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script language="javascript">
+var x = $(document);
+x.on("ready", animar);
+
+function animar(){
+	var diva = $("#contenido");
+	diva.show("slow");
+	}
+
+</script>
+<style type="text/css">
+body {
+	margin: 0px;
+}
+#fondo_web {
+	background-image: url(img/bg.jpg);
+	background-repeat: no-repeat;
+	margin: 0px;
+	height: 768px;
+	width: 1366px;
+}
+#contenido {
+	background-image: url(img/bg_blur.jpg);
+	height: 602px;
+	width: 802px;
+	float: left;
+	margin-top: 83px;
+	margin-left: 282px;
+	position: relative;
+	display: none;
+}
+#info {
+	position: relative;
+	margin-left: 21px;
+	margin-right: 21px;
+}
+#header {
+	margin-top: 21px;
+	margin-left: 21px;
+	position: relative;
+}
+.perfil {
+	float: left;
+	position: relative;
+	margin-right: 20px;
+	margin-left: 30px;
+}
+h1, h2 {
+	font-weight: lighter;
+	letter-spacing: -0.09em;
+	margin-left: 0.9em;
+}
+p {
+	font-size: 13px;
+	line-height: 10px;
+	margin-bottom: -5px;
+}
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #0E2C5C;
+}
+</style>
+</head>
+
+<body>
+<div id="fondo_web">
+  <div id="contenido">
+    <div id="header"><img src="img/header.jpg" width="757" height="187"></div>
+    <div id="info">
+    <h1>¿Quienes Somos?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+<p>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
+    <h1>Staff</h1>
+    <img src="img/foto.jpg" class="perfil">
+    <h2>Gilberto Coronado</h2>
+    <p>
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+</p>
+<p>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.
+    </p>
+    </div>
+  </div>
+</div> 
+</body>
+</html>

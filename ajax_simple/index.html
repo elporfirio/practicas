@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Prueba Ajax Basico | elporfirio.com</title>
+<script type="text/javascript">
+/*
+Parametros de .readyState:
+
+0 = la peticion no se inicio
+1 = conexion con el servidor establecida
+2 = peticion recibida
+3 = procesando peticion
+4 = peticion finalizada, respuesta lista
+
+Parametros .status:
+200 = Todo Correcto
+404 = No encontrado
+*/
+
+	function solicitarAjax(){
+		var conexion;
+		//conexion = new XMLHttpRequest();
+		
+		//para navegadores nuevos
+		if(window.XMLHttpRequest)
+			conexion = new XMLHttpRequest();
+			
+		// para internet explorer viejo
+		else
+			conexion = new ActiveXObject("Microsoft.XMLHTTP");
+		
+		// comprobacion para ejecutar la funcion	
+		conexion.onreadystatechange = function(){
+			
+			if(conexion.status == 404)
+				document.getElementById("DivMuestra").innerHTML="ERROR 404: No se encuentra el documento";
+			
+			if(conexion.readyState == 4 && conexion.status == 200)
+				//Donde se va mostrar lo que solicitamos
+				document.getElementById("DivMuestra").innerHTML=conexion.responseText;
+		}
+		
+		//El archivo que se va a abrir
+		conexion.open("GET","ejemplo.txt",true);
+		
+		//Solicitud de envio
+		conexion.send();
+	}
+</script>
+</head>
+
+<body>
+<div id="DivMuestra"></div>
+<button type="button" onclick="solicitarAjax()">Ejecutar</button>
+</body>
+</html>
